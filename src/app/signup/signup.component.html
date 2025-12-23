@@ -1,0 +1,37 @@
+<div class="auth-page">
+  <mat-card class="auth-card">
+    <h1>Create your account</h1>
+    <p class="subtitle">Start building your resume in minutes</p>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="signupForm.get('name')?.invalid">Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+        <mat-error *ngIf="signupForm.get('email')?.invalid">Enter a valid email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+        <mat-error *ngIf="signupForm.get('password')?.invalid">
+          Minimum 6 characters
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full" [disabled]="loading || signupForm.invalid">
+        <mat-spinner *ngIf="loading" diameter="18"></mat-spinner>
+        <span *ngIf="!loading">Create Account</span>
+      </button>
+    </form>
+
+    <div class="links">
+      <a mat-button routerLink="/login">Already have an account? Login</a>
+    </div>
+  </mat-card>
+</div>

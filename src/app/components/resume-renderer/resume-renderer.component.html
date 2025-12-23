@@ -1,0 +1,138 @@
+<!-- Download Button -->
+<button mat-raised-button color="primary" (click)="downloadPDF()">
+  <mat-icon>download</mat-icon>
+  Download PDF
+</button>
+
+<ng-container [ngSwitch]="template">
+
+  <!-- 🌟 Modern Resume Template -->
+  <div *ngSwitchCase="'modern'" class="resume modern-cv">
+    <aside class="sidebar">
+      <h2>{{ data?.name || 'John Doe' }}</h2>
+      <p>{{ data?.title || 'Frontend Developer' }}</p>
+      <p>{{ data?.email || 'john.doe@email.com' }}</p>
+      <p>{{ data?.phone || '+91 98765 43210' }}</p>
+      <p *ngIf="data?.linkedin || defaultLinks.linkedin">LinkedIn: {{ data?.linkedin || defaultLinks.linkedin }}</p>
+      <p *ngIf="data?.github || defaultLinks.github">GitHub: {{ data?.github || defaultLinks.github }}</p>
+      <p *ngIf="data?.portfolio || defaultLinks.portfolio">Portfolio: {{ data?.portfolio || defaultLinks.portfolio }}</p>
+
+      <hr />
+      <h3>Skills</h3>
+      <ul>
+        <li *ngFor="let skill of data?.skills || ['Angular', 'TypeScript', 'CSS']">{{ skill }}</li>
+      </ul>
+
+      <h3>Languages</h3>
+      <ul>
+        <li *ngFor="let lang of data?.languages || defaultLanguages">{{ lang }}</li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <section>
+        <h3>Profile Summary</h3>
+        <p>{{ data?.summary || 'Passionate developer with strong expertise in frontend engineering.' }}</p>
+      </section>
+
+      <section>
+        <h3>Experience</h3>
+        <div *ngFor="let exp of data?.experience || defaultExperience">
+          <h4>{{ exp.role }} - {{ exp.company }}</h4>
+          <p class="duration">{{ exp.duration }}</p>
+          <ul>
+            <li *ngFor="let point of exp.details">{{ point }}</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Projects</h3>
+        <div *ngFor="let proj of data?.projects || defaultProjects">
+          <h4>{{ proj.name }}</h4>
+          <p>{{ proj.description }}</p>
+          <p *ngIf="proj.link">🔗 <a [href]="proj.link" target="_blank">{{ proj.link }}</a></p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Education</h3>
+        <div *ngFor="let edu of data?.education || defaultEducation">
+          <h4>{{ edu.degree }} - {{ edu.institution }}</h4>
+          <p class="duration">{{ edu.year }}</p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Certifications</h3>
+        <ul>
+          <li *ngFor="let cert of data?.certifications || defaultCertifications">{{ cert }}</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- 🏛 Classic Resume Template -->
+  <div *ngSwitchCase="'classic'" class="resume classic-cv">
+    <header>
+      <h1>{{ data?.name || 'John Doe' }}</h1>
+      <p>{{ data?.title || 'Frontend Developer' }}</p>
+      <p>{{ data?.email || 'john.doe@email.com' }} | {{ data?.phone || '+91 98765 43210' }}</p>
+      <p>{{ data?.linkedin || defaultLinks.linkedin }} | {{ data?.github || defaultLinks.github }}</p>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p>{{ data?.summary || 'Experienced professional skilled in building scalable software solutions.' }}</p>
+    </section>
+
+    <section>
+      <h2>Work Experience</h2>
+      <div *ngFor="let exp of data?.experience || defaultExperience">
+        <h3>{{ exp.role }} - {{ exp.company }}</h3>
+        <p class="duration">{{ exp.duration }}</p>
+        <ul>
+          <li *ngFor="let point of exp.details">{{ point }}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div *ngFor="let proj of data?.projects || defaultProjects">
+        <h3>{{ proj.name }}</h3>
+        <p>{{ proj.description }}</p>
+        <p *ngIf="proj.link">🔗 <a [href]="proj.link" target="_blank">{{ proj.link }}</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div *ngFor="let edu of data?.education || defaultEducation">
+        <h3>{{ edu.degree }}</h3>
+        <p>{{ edu.institution }} - {{ edu.year }}</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <p>{{ (data?.skills || ['Problem Solving', 'Angular', 'Team Leadership']).join(', ') }}</p>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul>
+        <li *ngFor="let cert of data?.certifications || defaultCertifications">{{ cert }}</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <p>{{ (data?.languages || defaultLanguages).join(', ') }}</p>
+    </section>
+  </div>
+
+  <div *ngSwitchDefault>
+    <p>No template selected</p>
+  </div>
+</ng-container>

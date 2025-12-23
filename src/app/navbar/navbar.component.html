@@ -1,0 +1,38 @@
+<mat-toolbar class="navbar">
+
+  <!-- Brand -->
+  <div class="brand">
+    <span class="logo">QuickCV</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <!-- User menu -->
+  <ng-container *ngIf="auth.user$ | async as user">
+    <button
+      mat-icon-button
+      class="avatar-btn"
+      [matMenuTriggerFor]="userMenu"
+      aria-label="User menu"
+    >
+      <span class="avatar-circle">
+        {{ getUserName(user)[0] | uppercase }}
+      </span>
+    </button>
+
+    <mat-menu #userMenu="matMenu" xPosition="before">
+      <div class="menu-user">
+        <strong>{{ getUserName(user) }}</strong>
+        <span class="email">{{ user.email }}</span>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+  </ng-container>
+
+</mat-toolbar>

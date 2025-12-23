@@ -1,0 +1,67 @@
+<div class="dashboard-page">
+
+  <!-- HERO CARD -->
+  <section class="hero-card">
+    <ng-container *ngIf="!hasResume(); else continueBlock">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>Create your first resume</h2>
+          <p>
+            Build a structured, ATS-compliant resume with AI-assisted writing and
+            professional formatting.
+          </p>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="hero-action"
+          (click)="createResume()"
+        >
+          <mat-icon>add</mat-icon>
+          Create Resume
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-template #continueBlock>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>{{ lastResume.name }}</h2>
+          <p>Last edited {{ lastResume.updatedAt | date : "medium" }}</p>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="hero-action"
+          (click)="continueResume()"
+        >
+          <mat-icon>edit</mat-icon>
+          Continue Editing
+        </button>
+      </div>
+    </ng-template>
+  </section>
+
+  <!-- MY RESUMES -->
+  <section class="card">
+    <h3>My Resumes</h3>
+
+    <div *ngIf="recentResumes.length; else emptyState">
+      <div class="resume-row" *ngFor="let resume of recentResumes">
+        <mat-icon>description</mat-icon>
+
+        <div class="resume-info">
+          <strong>{{ resume.name }}</strong>
+          <span>Last edited {{ resume.updatedAt | date : "short" }}</span>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #emptyState>
+      <p class="empty-text">You haven’t created any resumes yet.</p>
+    </ng-template>
+  </section>
+
+</div>

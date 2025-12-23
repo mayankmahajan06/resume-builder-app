@@ -1,0 +1,41 @@
+<ng-container *ngIf="auth.user$ | async">
+
+  <div class="main-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo">QuickCV</span>
+      </div>
+
+      <nav class="nav">
+        <a routerLink="/dashboard" routerLinkActive="active">
+          <mat-icon>dashboard</mat-icon>
+          Dashboard
+        </a>
+
+        <a routerLink="/editor" routerLinkActive="active">
+          <mat-icon>add_circle</mat-icon>
+          Create Resume
+        </a>
+
+        <a routerLink="/dashboard">
+          <mat-icon>description</mat-icon>
+          My Resumes
+        </a>
+
+        <a routerLink="/settings">
+          <mat-icon>settings</mat-icon>
+          Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
+</ng-container>

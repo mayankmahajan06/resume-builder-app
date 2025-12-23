@@ -1,0 +1,155 @@
+/* ROOT — NO SCROLL */
+.auth-shell {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  overflow: hidden;
+  font-family: Inter, Roboto, sans-serif;
+}
+
+/* LEFT PANEL */
+.brand-panel {
+  background:
+    radial-gradient(1200px 500px at 10% 10%, #3f51b5, transparent 60%),
+    radial-gradient(800px 400px at 90% 80%, #009688, transparent 55%),
+    linear-gradient(135deg, #0f172a, #1e293b);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+}
+
+.brand-content {
+  max-width: 520px;
+}
+
+.brand-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  margin-bottom: 14px;
+}
+
+.brand-subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 32px;
+}
+
+/* Capability Grid */
+.capability-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.cap-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 16px 18px;
+  backdrop-filter: blur(6px);
+}
+
+.cap-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cap-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+}
+
+/* AI STRIP */
+.ai-strip {
+  margin-top: 28px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+}
+
+/* RIGHT PANEL */
+.form-panel {
+  background: linear-gradient(180deg, #f8fafc, #eef2ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LOGIN CARD */
+.login-card {
+  width: 380px;
+  padding: 36px 32px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 30px 60px rgba(15,23,42,.25),
+    0 10px 20px rgba(15,23,42,.12);
+  animation: fadeInUp .45s ease-out;
+}
+
+.login-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+.full {
+  width: 100%;
+}
+
+.login-btn {
+  margin-top: 10px;
+  height: 46px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(63,81,181,.35);
+}
+
+.login-links {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-panel {
+    display: none;
+  }
+
+  .login-card {
+    width: 92%;
+  }
+}

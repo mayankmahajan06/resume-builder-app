@@ -1,0 +1,63 @@
+/* NAVBAR */
+.navbar {
+  height: 64px;
+  background: linear-gradient(
+    180deg,
+    #f8fafc 0%,
+    #eef2ff 100%
+  );
+  color: #0f172a;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* BRAND */
+.brand .logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #1e293b;
+}
+
+/* FLEX SPACER */
+.spacer {
+  flex: 1;
+}
+
+/* AVATAR BUTTON */
+.avatar-btn {
+  padding: 0;
+}
+
+/* AVATAR CIRCLE */
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* MENU USER INFO */
+.menu-user {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-user strong {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.menu-user .email {
+  font-size: 12px;
+  color: #64748b;
+}

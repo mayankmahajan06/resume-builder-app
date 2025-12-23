@@ -1,0 +1,56 @@
+<div class="preview-card">
+
+  <!-- HEADER -->
+  <header class="doc-header">
+    <h1>{{ data?.personal?.fullName || 'Your Name' }}</h1>
+    <h2>{{ data?.personal?.title || 'Professional Title' }}</h2>
+
+    <div class="contact">
+      <span *ngIf="data?.personal?.email">{{ data.personal.email }}</span>
+      <span *ngIf="data?.personal?.phone"> • {{ data.personal.phone }}</span>
+      <span *ngIf="data?.personal?.location"> • {{ data.personal.location }}</span>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section *ngIf="data?.summary">
+    <h3>Professional Summary</h3>
+    <p class="summary-text">
+      {{ data.summary }}
+    </p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section *ngIf="data?.experience?.length">
+    <h3>Experience</h3>
+
+    <div class="experience-item" *ngFor="let exp of data.experience">
+
+      <div class="exp-header">
+        <strong>{{ exp.role || 'Job Title' }}</strong>
+        <span class="exp-date" *ngIf="exp.startDate">
+          {{ exp.startDate }} – {{ exp.endDate || 'Present' }}
+        </span>
+      </div>
+
+      <div class="exp-sub">
+        <span *ngIf="exp.company">{{ exp.company }}</span>
+        <span *ngIf="exp.location"> • {{ exp.location }}</span>
+      </div>
+
+      <p *ngIf="exp.description">
+        {{ exp.description }}
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section *ngIf="data?.skills">
+    <h3>Skills</h3>
+    <p class="skills-text">
+      {{ data.skills }}
+    </p>
+  </section>
+
+</div>

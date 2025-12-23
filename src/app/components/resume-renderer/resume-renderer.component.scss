@@ -1,0 +1,75 @@
+.resume {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #2c3e50;
+  line-height: 1.6;
+  overflow: visible;
+
+  /* ================= Modern Resume ================= */
+  &.modern-cv {
+    display: block;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    .sidebar {
+      display: inline-block;
+      width: 28%;
+      vertical-align: top;
+      background: linear-gradient(180deg, #3f51b5, #5c6bc0);
+      color: #fff;
+      padding: 24px 16px;
+      box-sizing: border-box;
+
+      h2 { margin: 0 0 8px; font-size: 1.6rem; font-weight: 600; }
+      p { margin: 4px 0; font-size: 0.9rem; opacity: 0.9; }
+      h3 { margin-top: 20px; font-size: 1.1rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 4px; }
+      ul { list-style: none; padding-left: 0; margin: 0; li { margin: 6px 0; font-size: 0.9rem; } }
+    }
+
+    .content {
+      display: inline-block;
+      width: 70%;
+      padding: 24px 16px;
+      box-sizing: border-box;
+
+      section { margin-bottom: 24px; page-break-inside: auto; }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #3f51b5;
+        border-left: 4px solid #3f51b5;
+        padding-left: 10px;
+        page-break-inside: avoid;
+      }
+
+      h4 { margin: 4px 0; font-weight: 600; page-break-inside: avoid; }
+      .duration { font-size: 0.85rem; color: #757575; margin-bottom: 8px; }
+      ul { padding-left: 18px; li { margin-bottom: 6px; } }
+    }
+  }
+
+  /* ================= Classic Resume ================= */
+  &.classic-cv {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafafa;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+
+    header { text-align: center; border-bottom: 3px solid #3f51b5; padding-bottom: 12px; margin-bottom: 20px;
+      h1 { margin: 0; font-size: 2rem; font-weight: 700; color: #2c3e50; page-break-inside: avoid; }
+      p { margin: 6px 0; color: #555; font-size: 0.95rem; } 
+    }
+
+    section { margin-bottom: 20px; page-break-inside: auto; }
+    section h2 { font-size: 1.4rem; font-weight: 600; color: #3f51b5; margin-bottom: 12px; border-bottom: 1px solid #ddd; padding-bottom: 4px; page-break-inside: avoid; }
+    section h3 { margin: 4px 0; font-weight: 600; color: #2c3e50; page-break-inside: avoid; }
+    .duration { font-size: 0.85rem; color: #757575; margin-bottom: 8px; }
+    ul { page-break-inside: auto; margin: 0; padding-left: 18px; }
+  }
+
+  /* ================= PDF Safety ================= */
+  * { box-sizing: border-box; }
+}
